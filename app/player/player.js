@@ -6,9 +6,9 @@ export default class Player extends Component {
         const { x, y } = this.props;
 
         return (
-            <div className="player" style={{ top: x, left: y }}></div>
+            <div className="player" style={{ left: x, top: y }}></div>
         )
-    }
+    } 
 }
 
 Player.propTypes = {
