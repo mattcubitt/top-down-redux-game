@@ -1,9 +1,10 @@
 export const MOVE_PLAYER = 'MOVE_PLAYER';
 
-export function movePlayer(x, y) {
+export default function movePlayer(currentPosition, targetPosition, pitchSize) {
     return {
         type: MOVE_PLAYER,
-        x: x,
-        y: y
+        currentPosition,
+        targetPosition,
+        pitchSize
     }
 }

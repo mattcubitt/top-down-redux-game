@@ -7,11 +7,13 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 
-import Pitch from './pitch/pitch';
-import playerRedcutor from './player/playerReducer';
+import Game from './game/game';
+import playerReducer from './player/playerReducer';
+import pitchReducer from './pitch/pitchReducer';
 
 var reducers = {
-    player: playerRedcutor
+    player: playerReducer,
+    pitch: pitchReducer
 };
 
 var rootReducer = combineReducers(reducers);
@@ -31,7 +33,7 @@ var configureStore = function configureStore(initialState) {
 
 render(
     <Provider store={configureStore()}>
-        <Pitch/>
+        <Game/>
     </Provider>,
     document.getElementById('app')
 );

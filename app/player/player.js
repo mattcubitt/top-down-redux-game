@@ -1,17 +1,23 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react';
+
+import MoveTarget from './moveTarget';
 
 export default class Player extends Component {
 
     render() {
-        const { x, y } = this.props;
+        const { player } = this.props;
+        const { currentPosition } = player;
+        const { targetPosition } = player;
 
         return (
-            <div className="player" style={{ left: x, top: y }}></div>
+            <div>
+                <div className="player" style={{ left: currentPosition.x, top: currentPosition.y }}></div>
+                <MoveTarget position={targetPosition} />
+            </div>
         )
     } 
 }
 
 Player.propTypes = {
-    x: React.PropTypes.number.isRequired,
-    y: React.PropTypes.number.isRequired
+    player: React.PropTypes.object.isRequired
 };

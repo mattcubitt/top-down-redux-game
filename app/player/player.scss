@@ -2,6 +2,14 @@
 	width: 15px;
 	height: 15px;
 	border-radius: 15px;
-	background-color: mediumslateblue;
+	background-color: blueviolet;
+	position: absolute;
+}
+
+.moveTarget {
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+	background-color: darkred;
 	position: absolute;
 }
