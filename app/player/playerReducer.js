@@ -9,21 +9,20 @@ var initialState = {
 
 export default function(state=initialState, action) {
     switch(action.type) {
-        // case TRANSITION_PLAYER:
-        //     return {
-        //         ...state,
-        //         currentPosition: {
-        //             x: action.x,
-        //             y: action.y
-        //         }
-        //     };
+        case TRANSITION_PLAYER:
+            var path = state.path.slice(1, state.path.length);
+            var pos = path[0];
+
+            return {
+                currentPosition: { x: pos[0], y: pos[1] },
+                targetPosition: action.targetPosition,
+                path
+            };
         case MOVE_PLAYER:
-            var path = pathFinder(action.currentPosition, action.targetPosition, action.pitchSize);
-            
             return {
                 currentPosition: action.currentPosition,
                 targetPosition: action.targetPosition,
-                path
+                path: pathFinder(action.currentPosition, action.targetPosition, action.pitchSize)
             };
         default:
             return state;

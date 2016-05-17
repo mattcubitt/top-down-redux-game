@@ -21,8 +21,8 @@ describe('pathFinder', function() {
 
         var path = pathFinder(currentPosition, targetPosition, gridSize);
 
-        expect(path.length).to.equal(19);
+        expect(path.length).to.equal(10);
         expect(path[0]).to.deep.equal([0, 0]);
-        expect(path[18]).to.deep.equal([9, 9]);
+        expect(path[9]).to.deep.equal([9, 9]);
     });
 });

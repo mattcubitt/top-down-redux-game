@@ -1,9 +1,8 @@
 export const TRANSITION_PLAYER = 'TRANSITION_PLAYER';
 
-export default function transitionPlayer(x, y) {
+export default function transitionPlayer(targetPosition) {
     return {
         type: TRANSITION_PLAYER,
-        x: x,
-        y: y
+        targetPosition
     }
 }

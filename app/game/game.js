@@ -5,6 +5,7 @@ import gameState from './gameState';
 import Pitch from '../pitch/pitch';
 import movePlayer from '../player/movePlayer';
 import _ from 'lodash';
+import transitionPlayer from '../player/transitionPlayer';
 
 @connect(gameState)
 export default class Game extends Component {
@@ -14,10 +15,7 @@ export default class Game extends Component {
 
     onMovePlayer(event) {
         const { dispatch, player, pitch } = this.props;
-
         const targetPosition = { x: event.clientX, y: event.clientY };
-
-        //var path = pathFinder(player.currentPosition, targetPosition, pitch.size);
 
         dispatch(movePlayer(player.currentPosition, targetPosition, pitch.size));
     }
@@ -28,9 +26,7 @@ export default class Game extends Component {
         const targetPosition = player.targetPosition;
 
         if(targetPosition && !_.isEqual(currentPosition, targetPosition)) {
-            //var nextPosition = transitionCalculator(currentPosition, currentPosition);
-
-            //dispatch(transitionPlayer(nextPosition.x, nextPosition.y));
+            dispatch(transitionPlayer(targetPosition));
         }
 
         window.requestAnimationFrame(this.onTick.bind(this));
