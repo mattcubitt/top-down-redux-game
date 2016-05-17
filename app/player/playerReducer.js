@@ -11,6 +11,15 @@ export default function(state=initialState, action) {
     switch(action.type) {
         case TRANSITION_PLAYER:
             var path = state.path.slice(1, state.path.length);
+
+            if(path.length === 0) {
+                return {
+                    currentPosition: action.targetPosition,
+                    targetPosition: action.targetPosition,
+                    path
+                };
+            }
+
             var pos = path[0];
 
             return {
