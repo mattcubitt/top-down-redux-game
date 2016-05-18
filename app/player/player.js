@@ -11,7 +11,7 @@ export default class Player extends Component {
 
         return (
             <div>
-                <div className="player" style={{ left: currentPosition.x, top: currentPosition.y }}></div>
+                <div className="player" style={{ left: currentPosition.x - 5, top: currentPosition.y - 5 }}></div>
                 <MoveTarget position={targetPosition} />
             </div>
         )
