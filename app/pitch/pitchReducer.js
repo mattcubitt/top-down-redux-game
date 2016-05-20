@@ -1,8 +1,8 @@
 var initialState = {
-    numberOfCellsX: 3,
-    numberOfCellsY: 3,
-    cellWidth: 100,
-    cellHeight: 100
+    numberOfCellsX: 30,
+    numberOfCellsY: 30,
+    cellWidth: 10,
+    cellHeight: 10
 };
 
 export default function(state=initialState) {

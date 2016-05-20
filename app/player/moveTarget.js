@@ -12,7 +12,7 @@ export default class MoveTarget extends Component {
         }
 
         return (
-            <div className="moveTarget" style={{ left: position.x, top: position.y - 14 }}></div>
+            <div className="moveTarget" style={{ left: position.x, top: position.y - 15 }}></div>
         )
     } 
 }
