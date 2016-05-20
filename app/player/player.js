@@ -1,13 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 
 import MoveTarget from './moveTarget';
+import realPositionCalculator from '../grid/realPositionCalculator';
 
 export default class Player extends Component {
 
     render() {
-        const { player } = this.props;
-        const { currentPosition } = player;
-        const { targetPosition } = player;
+        const { player, pitch } = this.props;
+
+        const currentPosition = realPositionCalculator(pitch, player.currentPosition);
+        const targetPosition = player.targetPosition ? realPositionCalculator(pitch, player.targetPosition) : player.targetPosition;
 
         return (
             <div>

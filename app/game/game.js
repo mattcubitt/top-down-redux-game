@@ -6,6 +6,8 @@ import Pitch from '../pitch/pitch';
 import movePlayer from '../player/movePlayer';
 import _ from 'lodash';
 import transitionPlayer from '../player/transitionPlayer';
+import gridPositionCalculator from '../grid/gridPositionCalculator';
+import Grid from '../grid/grid';
 
 @connect(gameState)
 export default class Game extends Component {
@@ -15,9 +17,14 @@ export default class Game extends Component {
 
     onMovePlayer(event) {
         const { dispatch, player, pitch } = this.props;
-        const targetPosition = { x: event.clientX, y: event.clientY };
+        const position = { x: event.clientX - event.target.offsetLeft, y: event.clientY - event.target.offsetTop };
+        const targetPosition = gridPositionCalculator(pitch, position);
+        const size = {
+            width: pitch.numberOfCellsX,
+            height: pitch.numberOfCellsY
+        };
 
-        dispatch(movePlayer(player.currentPosition, targetPosition, pitch.size));
+        dispatch(movePlayer(player.currentPosition, targetPosition, size));
     }
 
     onTick() {
@@ -42,5 +49,6 @@ export default class Game extends Component {
 }
 
 Game.propTypes = {
-    player: PropTypes.object.isRequired
+    player: PropTypes.object.isRequired,
+    pitch: PropTypes.object.isRequired
 };

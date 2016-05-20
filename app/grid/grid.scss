@@ -1,0 +1,10 @@
+.grid {
+	margin: auto;
+	position: relative;
+
+	&.inner {
+		border: 1px solid red;
+		margin: 0;
+		float: left;
+	}
+}
