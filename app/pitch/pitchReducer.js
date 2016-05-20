@@ -1,6 +1,6 @@
 var initialState = {
-    numberOfCellsX: 30,
-    numberOfCellsY: 30,
+    numberOfCellsX: 50,
+    numberOfCellsY: 80,
     cellWidth: 10,
     cellHeight: 10
 };
